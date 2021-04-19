@@ -43,14 +43,17 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-//Development
+
 // app.listen(3000, () => {
-//     console.log(api);
-//     console.log('server is runninng at http://localhost:3000');
-// })
+//   console.log(api);
+//   console.log('server is runninng at http://localhost:3000');
+// });
 
 // Production
-var server = app.listen(process.env.PORT || 3000, function () {
-  var port = server.address().port;
-  console.log('Express is working on port ' + port);
+app.listen(process.env.PORT || 3000, function () {
+  console.log(
+    'Express server listening on port %d in %s mode',
+    this.address().port,
+    app.settings.env
+  );
 });
